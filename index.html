@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeLearn - Masuk & Daftar</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+    <div id="auth-container">
+        <div id="sign-up-view" class="auth-view active">
+            <h2>Daftar Akun Baru</h2>
+            <form id="signup-form">
+                <input type="text" id="signup-username" placeholder="Nama Pengguna" required>
+                <input type="email" id="signup-email" placeholder="Email" required>
+                <input type="password" id="signup-password" placeholder="Kata Sandi" required>
+                <button type="submit">Daftar Sekarang</button>
+            </form>
+            <p>Sudah punya akun? <a href="#" id="show-login">Masuk di sini</a></p>
+        </div>
+
+        <div id="log-in-view" class="auth-view hidden">
+            <h2>Masuk ke CodeLearn</h2>
+            <form id="login-form">
+                <input type="text" id="login-username" placeholder="Nama Pengguna atau Email" required>
+                <input type="password" id="login-password" placeholder="Kata Sandi" required>
+                <button type="submit">Masuk</button>
+            </form>
+            <p>Belum punya akun? <a href="#" id="show-signup">Daftar di sini</a></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

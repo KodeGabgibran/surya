@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeLearn - Detail Modul</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="main-app">
+        <nav id="sidebar">
+            <h1>CodeLearn</h1>
+            <ul>
+                <li><a href="home.html">🏠 Beranda</a></li>
+                <li class="active-menu"><a href="modules.html">📚 Modul Edukasi</a></li>
+                <li onclick="logout()">➡️ Keluar (Log out)</li>
+            </ul>
+        </nav>
+        
+        <main id="app-content">
+            <section id="module-detail-screen" class="content-screen">
+                <a href="modules.html" class="back-button">← Kembali ke Daftar Modul</a>
+                <h2 id="module-title">Judul Modul</h2>
+                <div id="module-chapters">
+                    </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="moduleData.js"></script>
+    <script src="script.js"></script>
+    <script>
+        checkAuthStatus(); // Memastikan status otentikasi
+
+        // Fungsi yang dijalankan khusus untuk halaman detail modul
+        function loadModuleContent() {
+            const moduleId = localStorage.getItem('currentModuleId');
+            if (!moduleId || typeof modules === 'undefined') {
+                window.location.href = 'modules.html';
+                return;
+            }
+
+            const module = modules.find(m => m.id === moduleId);
+            if (!module) {
+                document.getElementById('module-title').textContent = 'Modul Tidak Ditemukan';
+                return;
+            }
+
+            document.getElementById('module-title').textContent = module.title;
+            const chaptersContainer = document.getElementById('module-chapters');
+            chaptersContainer.innerHTML = ''; 
+
+            module.chapters.forEach(chapter => {
+                const chapterDiv = document.createElement('div');
+                chapterDiv.className = 'chapter-section';
+                chapterDiv.innerHTML = `
+                    <h3>${chapter.title}</h3>
+                    ${chapter.content}
+                `;
+                chaptersContainer.appendChild(chapterDiv);
+            });
+        }
+
+        loadModuleContent();
+    </script>
+</body>
+</html>

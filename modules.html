@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeLearn - Modul</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="main-app">
+        <nav id="sidebar">
+            <h1>CodeLearn</h1>
+            <ul>
+                <li><a href="home.html">🏠 Beranda</a></li>
+                <li class="active-menu"><a href="modules.html">📚 Modul Edukasi</a></li>
+                <li onclick="logout()">➡️ Keluar (Log out)</li>
+            </ul>
+        </nav>
+        
+        <main id="app-content">
+            <section id="modules-screen" class="content-screen">
+                <h2>📚 Modul Edukasi</h2>
+                <p>Pilih salah satu modul di bawah untuk memulai pembelajaran Anda:</p>
+                <div id="module-list">
+                    </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="moduleData.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Memastikan status otentikasi saat halaman dimuat
+        checkAuthStatus();
+        
+        // Memuat daftar modul
+        renderModuleList(); 
+        
+        // Fungsi untuk navigasi ke detail modul
+        function showModuleDetail(moduleId) {
+            localStorage.setItem('currentModuleId', moduleId);
+            window.location.href = 'module-detail.html';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeLearn - Beranda</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="main-app">
+        <nav id="sidebar">
+            <h1>CodeLearn</h1>
+            <ul>
+                <li class="active-menu"><a href="home.html">🏠 Beranda</a></li>
+                <li><a href="modules.html">📚 Modul Edukasi</a></li>
+                <li onclick="logout()">➡️ Keluar (Log out)</li>
+            </ul>
+        </nav>
+        
+        <main id="app-content">
+            <section id="home-screen" class="content-screen">
+                <h2>Selamat Datang di CodeLearn!</h2>
+                <p>Selamat datang kembali di platform edukasi *coding* gratis Anda. Pilih **Modul Edukasi** untuk memulai petualangan *coding* Anda, atau **Keluar** jika Anda ingin mengakhiri sesi.</p>
+                
+                <p>Mulai perjalanan Anda sekarang. Masa depan digital menanti!</p>
+
+                <div class="quick-links">
+                    <a href="modules.html" class="button-primary">Mulai Belajar Sekarang</a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Memastikan status otentikasi saat halaman dimuat
+        checkAuthStatus();
+    </script>
+</body>
+</html>
